@@ -19,8 +19,13 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *popupwingPopupProperty;
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
-@property NSArray * everyDayArr;
-@property NSArray * arr;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mySegmented;  //分段控制器
+@property (weak, nonatomic) IBOutlet UIButton *addButton;  //添加按钮
+@property NSArray * everyDayArr;   //每日最美数组
+@property NSArray * colourArr;    //颜色数组
+@property NSArray * arr1;         //最热分享数组
+@property NSArray * arr2;         //最新发布数组
 
 @property (weak, nonatomic)id<WingViewDelegate> delegate;  //协议
 

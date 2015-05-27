@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>collect</key>
+		<string>65</string>
+		<key>news</key>
+		<string>52</string>
+		<key>browse</key>
+		<string>675</string>
+		<key>text</key>
+		<string>千万别以为这是一款牛逼的APP，其实它是一块面包，哇嘎嘎，看看吧骚年</string>
+		<key>name</key>
+		<string>每日最美</string>
+		<key>image</key>
+		<string>9</string>
+	</dict>
+	<dict>
+		<key>collect</key>
+		<string>65</string>
+		<key>news</key>
+		<string>52</string>
+		<key>browse</key>
+		<string>675</string>
+		<key>text</key>
+		<string>千万别以为这是一款牛逼的APP，其实它是一块面包，哇嘎嘎，看看吧骚年</string>
+		<key>name</key>
+		<string>你没有用到哦</string>
+		<key>image</key>
+		<string>8</string>
+	</dict>
+	<dict>
+		<key>collect</key>
+		<string>65</string>
+		<key>news</key>
+		<string>52</string>
+		<key>browse</key>
+		<string>675</string>
+		<key>text</key>
+		<string>千万别以为这是一款牛逼的APP，其实它是一块面包，哇嘎嘎，看看吧骚年</string>
+		<key>name</key>
+		<string>美然相继</string>
+		<key>image</key>
+		<string>7</string>
+	</dict>
+	<dict>
+		<key>collect</key>
+		<string>65</string>
+		<key>news</key>
+		<string>52</string>
+		<key>browse</key>
+		<string>675</string>
+		<key>text</key>
+		<string>千万别以为这是一款牛逼的APP，其实它是一块面包，哇嘎嘎，看看吧骚年</string>
+		<key>name</key>
+		<string>单单的蛋蛋</string>
+		<key>image</key>
+		<string>6</string>
+	</dict>
+</array>
+</plist>

@@ -11,9 +11,11 @@
 #import "EverydayCollectionViewFlowLayout.h"
 #import "ViewController.h"
 #import "FindCollectionViewCell.h"
+#import "DiscoverCollectionViewFlowLayout.h"
 
 @implementation WingView{
 
+    __weak IBOutlet UILabel *jinRiZuiMeiLabel;
     NSInteger _type;
 }
 //- (id)initWithFrame:(CGRect)frame{
@@ -24,6 +26,19 @@
 
 //默认方法
 - (void)awakeFromNib{
+    
+    //拿到地址
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"FindProperty List" ofType:@"plist"];
+    //把地址付给这个数组
+    _arr1 = [NSArray arrayWithContentsOfFile:path];
+    
+    //拿到地址
+    NSString * path1 = [[NSBundle mainBundle] pathForResource:@"Property List" ofType:@"plist"];
+    //把地址付给这个数组
+    _arr2 = [NSArray arrayWithContentsOfFile:path1];
+    
+    _mySegmented.hidden = YES;
+    _addButton.hidden = YES;
     NSDictionary * dic1 = @{@"introduce":@"让声音更感染",
                             @"headline":@"樱桃音乐",  //标题
                             @"image":@"1",     //图片
@@ -72,7 +87,7 @@
     _everyDayArr = @[dic1,dic2,dic3,dic4,dic5,dic6,dic7,dic8,dic9];
     
     //颜色数组
-     _arr= @[[UIColor colorWithRed:219.0f/255.0f green:112.0f/255.0f blue:147.0f/255.0f alpha:1],
+     _colourArr= @[[UIColor colorWithRed:219.0f/255.0f green:112.0f/255.0f blue:147.0f/255.0f alpha:1],
              [UIColor colorWithRed:119.0f/255.0f green:21.0f/255.0f blue:113.0f/255.0f alpha:1],
              [UIColor colorWithRed:186.0f/255.0f green:85.0f/255.0f blue:211.0f/255.0f alpha:1],
              [UIColor colorWithRed:106.0f/255.0f green:90.0f/255.0f blue:205.0f/255.0f alpha:1],
@@ -100,11 +115,21 @@
     
     //设置colletionview的布局
     EverydayCollectionViewFlowLayout *folwLayout = [EverydayCollectionViewFlowLayout new];
+    DiscoverCollectionViewFlowLayout * folwLayout1 = [DiscoverCollectionViewFlowLayout new];
+    
+    if (_type == 3) {
+        
+        [_myCollectionView setCollectionViewLayout:folwLayout1];
+        
+    }else{
+        
     [_myCollectionView setCollectionViewLayout:folwLayout];
+    }
     
     //注册cell
     UINib * nib = [UINib nibWithNibName:@"EverydayCollectionViewCell" bundle:[NSBundle mainBundle]];
     [_myCollectionView registerNib:nib forCellWithReuseIdentifier:@"EverydayCollectionViewCell"];
+    
     
     //注册cell
     UINib * nib1 = [UINib nibWithNibName:@"FindCollectionViewCell" bundle:[NSBundle mainBundle]];
@@ -144,6 +169,7 @@
     [self showContentView];
 }
 
+
 - (void)showContentView{
     CGRect rect = self.frame;
     if (self.frame.origin.x == 280) {
@@ -157,19 +183,57 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _everyDayArr.count;
+    if (_type == 3) {
+        if (_mySegmented.selectedSegmentIndex == 0) {
+            return _arr1.count;
+        }else{
+            return  _arr2.count;
+        }
+    }else{
+        return _everyDayArr.count;
+    }
 }
 
 //渲染
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     
-    if (_type == 3){
+    if (_type == 3)
+    {
+        //发现应用CELL
         static NSString * identifier = @"FindCollectionViewCell";
         FindCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+        
+        if (_mySegmented.selectedSegmentIndex == 0)
+        {
+            NSDictionary * dic = _arr1[indexPath.row];
+            cell.collectLabel.text = dic[@"collect"];
+            cell.newsLabel.text = dic[@"news"];
+            cell.browseLabel.text = dic[@"browse"];
+            cell.text.text = dic[@"text"];
+            cell.nameLabel.text = dic[@"name"];
+            cell.image.image = [UIImage imageNamed:dic[@"image"]];
+            
+        }
+        else
+        {
+//        //发现应用CELL
+//        static NSString * identifier = @"FindCollectionViewCell";
+//        FindCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+            NSDictionary * dic = _arr2[indexPath.row];
+            cell.collectLabel.text = dic[@"collect"];
+            cell.newsLabel.text = dic[@"news"];
+            cell.browseLabel.text = dic[@"browse"];
+            cell.text.text = dic[@"text"];
+            cell.nameLabel.text = dic[@"name"];
+            cell.image.image = [UIImage imageNamed:dic[@"image"]];
+        }
+        
         return cell;
     }
     else
     {
+        //每日最美CELL
     static NSString * identifier = @"EverydayCollectionViewCell";
     EverydayCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSDictionary * dic = _everyDayArr[indexPath.row];
@@ -182,6 +246,7 @@
     }
 }
 
+
 //CollectionViewCell点击每一块 （76行）
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -189,16 +254,56 @@
 
 //列表他兄弟滑动完后调用
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    if (_type == 3) {
+        return;
+    }else
+    {
     int index = (int)scrollView.contentOffset.x/self.frame.size.width;
-    UIColor * mycolor = _arr[index%_arr.count];
+    UIColor * mycolor = _colourArr[index%_colourArr.count];
     
     self.backgroundColor = mycolor;
+    _label.backgroundColor = mycolor;
     [self.delegate wingViewDidEndDecelerating:mycolor];
+    }
 }
 
 -(void)receive:(NSIndexPath *)indexPath{
+    
     _type = indexPath.row;
     [self.myCollectionView reloadData];//刷新
+    
+    //设置colletionview的布局
+    EverydayCollectionViewFlowLayout *folwLayout = [EverydayCollectionViewFlowLayout new];
+    DiscoverCollectionViewFlowLayout * folwLayout1 = [DiscoverCollectionViewFlowLayout new];
+    
+    if (_type == 3) {
+        [_myCollectionView setCollectionViewLayout:folwLayout1];
+        
+        //取消列表他兄弟按页滑动
+        _myCollectionView.pagingEnabled = NO;
+        _mySegmented.hidden = NO;
+        _addButton.hidden = NO;
+        jinRiZuiMeiLabel.hidden = YES;
+    }else{
+        //列表他兄弟按页滑动
+        _myCollectionView.pagingEnabled = YES;
+        _mySegmented.hidden = YES;
+        _addButton.hidden = YES;
+        jinRiZuiMeiLabel.hidden = NO;
+        [_myCollectionView setCollectionViewLayout:folwLayout];
+    }
+}
+
+//分段控制器方法
+- (IBAction)mySegmentedControl:(UISegmentedControl *)sender {
+    
+    [_myCollectionView reloadData];
+}
+
+//发现应用添加按钮
+- (IBAction)addButton:(UIButton *)sender {
+    
 }
 
 @end

@@ -73,6 +73,15 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="browseLabel" destination="TXY-hs-gvA" id="vnK-41-a1G"/>
+                <outlet property="collectLabel" destination="D3Z-gi-ERc" id="5tl-N0-a1G"/>
+                <outlet property="image" destination="X1j-dZ-2Vm" id="ffj-IT-HW5"/>
+                <outlet property="nameLabel" destination="xsW-qo-6cB" id="XNG-FS-frG"/>
+                <outlet property="namelabelxia" destination="sM7-OH-QDt" id="K5T-UH-wK0"/>
+                <outlet property="newsLabel" destination="26W-8I-P1B" id="Ug1-Ye-F2l"/>
+                <outlet property="text" destination="wY2-va-Otg" id="DzC-q7-x3B"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>

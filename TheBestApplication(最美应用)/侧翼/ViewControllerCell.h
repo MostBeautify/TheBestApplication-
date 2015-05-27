@@ -11,5 +11,6 @@
 @interface ViewControllerCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *wingLabe;  //标题
 @property (weak, nonatomic) IBOutlet UIButton *wingButton;  //图片
+@property (weak, nonatomic) IBOutlet UILabel *dianDian;
 
 @end

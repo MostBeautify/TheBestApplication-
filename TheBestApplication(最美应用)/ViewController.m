@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     //加载xib视图
     _wView = [[[NSBundle mainBundle] loadNibNamed:@"WingView" owner:self options:nil] lastObject];
     _wView.delegate = self;
@@ -90,7 +90,7 @@
     [cell.wingButton setImage:[UIImage imageNamed:dic[@"image"]] forState:UIControlStateNormal];
     
     cell.wingLabe.text = dic[@"theme"];
-    
+        
     return cell;
     }
 }
@@ -116,13 +116,17 @@
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+    
 }
 
 //点击每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     [self.wView showContentView];
     
+    //拿到上一界面列表
     [self.wView receive:indexPath];
+    
 }
 
 @end
