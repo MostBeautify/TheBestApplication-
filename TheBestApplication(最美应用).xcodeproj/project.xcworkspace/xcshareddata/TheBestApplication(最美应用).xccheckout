@@ -5,11 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< Updated upstream
 	<string>91C91B0B-A3A5-4011-A2E4-F26DD82306FD</string>
-=======
-	<string>F577C82C-AA2E-4C89-866C-9615B634D594</string>
->>>>>>> Stashed changes
 	<key>IDESourceControlProjectName</key>
 	<string>TheBestApplication(最美应用)</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -38,11 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C3232D230DBE35D6A983CFA98C423ECA6527D902</string>
 			<key>IDESourceControlWCCName</key>
-<<<<<<< Updated upstream
 			<string>TheBestApplication(%E6%9C%80%E7%BE%8E%E5%BA%94%E7%94%A8)</string>
-=======
-			<string>TheBestApplication-</string>
->>>>>>> Stashed changes
 		</dict>
 	</array>
 </dict>
