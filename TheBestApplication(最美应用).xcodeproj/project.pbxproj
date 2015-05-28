@@ -56,7 +56,11 @@
 		2389511A1B09D03000A10998 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 238951111B09D03000A10998 /* 8.png */; };
 		2389511B1B09D03000A10998 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 238951121B09D03000A10998 /* 9.png */; };
 		2389511D1B09D4C800A10998 /* mo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2389511C1B09D4C800A10998 /* mo.png */; };
+<<<<<<< Updated upstream
 		23943D4A1B1498F700339A93 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23943D491B1498F700339A93 /* Property List.plist */; };
+=======
+		EFAD1ADD1B0DB2DD00FE0893 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFAD1ADC1B0DB2DD00FE0893 /* SearchViewController.m */; };
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +137,12 @@
 		238951111B09D03000A10998 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		238951121B09D03000A10998 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
 		2389511C1B09D4C800A10998 /* mo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mo.png; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		23943D491B1498F700339A93 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+=======
+		EFAD1ADB1B0DB2DD00FE0893 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		EFAD1ADC1B0DB2DD00FE0893 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +189,7 @@
 				2309C3091B06F58F006A6F60 /* ViewController */,
 				236427501B0C87750089CEC1 /* 发现应用 */,
 				2309C3011B06E91E006A6F60 /* 每日最美 */,
+				EFAD1ADA1B0DB29D00FE0893 /* 搜索 */,
 				2309C2C21B06D644006A6F60 /* Main.storyboard */,
 				2309C2C51B06D644006A6F60 /* Images.xcassets */,
 				2309C2C71B06D644006A6F60 /* LaunchScreen.xib */,
@@ -369,6 +379,15 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
+		EFAD1ADA1B0DB29D00FE0893 /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				EFAD1ADB1B0DB2DD00FE0893 /* SearchViewController.h */,
+				EFAD1ADC1B0DB2DD00FE0893 /* SearchViewController.m */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -513,6 +532,7 @@
 				2309C3001B06E569006A6F60 /* WingView.m in Sources */,
 				2309C2BE1B06D644006A6F60 /* AppDelegate.m in Sources */,
 				2309C2BB1B06D644006A6F60 /* main.m in Sources */,
+				EFAD1ADD1B0DB2DD00FE0893 /* SearchViewController.m in Sources */,
 				238950FC1B097F7D00A10998 /* BelowTableViewCell.m in Sources */,
 				238951051B09C14100A10998 /* EverydayCollectionViewCell.m in Sources */,
 			);

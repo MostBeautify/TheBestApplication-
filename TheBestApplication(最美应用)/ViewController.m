@@ -16,6 +16,7 @@
 
 @property     WingView * wView;
 
+
 @end
 
 @implementation ViewController
@@ -56,6 +57,7 @@
 - (void)wingViewDidEndDecelerating:(UIColor *)color{
     self.view.backgroundColor = color;
 }
+
 
 //列表多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -111,6 +113,7 @@
 
 //搜索方法
 - (IBAction)seekButton:(UIButton *)sender {
+//    [self performSegueWithIdentifier:@"searchpush" sender:nil];
     
 }
 
@@ -128,5 +131,9 @@
     [self.wView receive:indexPath];
     
 }
+
+
+
+
 
 @end
